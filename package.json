@@ -1,0 +1,33 @@
+{
+  "name": "dotdance",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd apps/frontend && npm run dev",
+    "dev:backend": "cd apps/backend && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd apps/frontend && npm run build",
+    "build:backend": "cd apps/backend && npm run build",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:frontend": "cd apps/frontend && npm run preview",
+    "start:backend": "cd apps/backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/qrcode.react": "^3.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "bootstrap": "^5.3.5",
+    "framer-motion": "^12.6.3",
+    "qrcode.react": "^4.2.0",
+    "react-icons": "^5.5.0"
+  }
+}

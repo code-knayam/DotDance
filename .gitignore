@@ -1,0 +1,46 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+.next/
+out/
+coverage/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# IDEs & editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Optional lock files (if you're using only one manager, feel free to ignore others)
+package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Next.js specific
+apps/frontend/.next/
+apps/frontend/out/
+
+# Local environment config
+apps/frontend/.env.local
+apps/backend/.env
+apps/backend/.env.*
