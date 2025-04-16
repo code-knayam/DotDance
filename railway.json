@@ -3,6 +3,6 @@
     "env": "node",
     "root": "node-app",
     "buildCommand": "npm install",
-    "startCommand": "npm start"
+    "startCommand": "npm run start:prod"
 }
 }
