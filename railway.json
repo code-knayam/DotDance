@@ -1,8 +1,7 @@
 {
 "build": {
     "env": "node",
-    "root": "node-app",
-    "buildCommand": "npm install",
+    "buildCommand": "cd node-app && npm install",
     "startCommand": "npm run start:prod"
 }
 }
