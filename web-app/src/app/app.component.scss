@@ -1,0 +1,20 @@
+.app-container {
+  height: 100vh;
+  // background-color: #161b22;
+
+  color: #e6edf3;
+}
+
+::ng-deep {
+  .mat-drawer {
+    // background-color: #161b22;
+    border-right: 1px solid #30363d;
+    width: 250px;
+  }
+
+  .mat-toolbar {
+    // background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    color: #e6edf3;
+  }
+}

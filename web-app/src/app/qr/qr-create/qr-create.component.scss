@@ -1,0 +1,119 @@
+.qr-create {
+    // height: 100%;
+    // padding: 16px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    // height: calc(100% - 60px); // Subtract header height
+  }
+
+  h1 {
+    // margin: 0 0 24px 0;
+    font-size: 32px;
+  }
+
+  .section-header {
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .form-section {
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .color-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .color-field {
+    input[type="color"] {
+      height: 36px;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+
+    button {
+      flex: 1;
+      height: 36px;
+      font-size: 14px;
+    }
+  }
+
+  .preview-section {
+    // border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .preview-card {
+    // border: 1px solid #30363d;
+    padding: 24px;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .qr-preview {
+    padding: 16px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  ::ng-deep {
+    // .mat-mdc-form-field {
+
+
+    //   .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline__leading,
+    //   .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline__notch,
+    //   .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline__trailing {
+    //     border-color: #30363d;
+    //   }
+    // }
+
+    // Reduce form field height
+    // .mat-mdc-form-field-infix {
+    //   min-height: 48px;
+    //   padding-top: 12px;
+    //   padding-bottom: 12px;
+    // }
+  }

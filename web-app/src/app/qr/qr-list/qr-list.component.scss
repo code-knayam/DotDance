@@ -1,0 +1,30 @@
+.qr-list {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.qr-card {
+  height: 100%;
+}
+
+.qr-preview {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+mat-icon {
+  margin-right: 8px;
+}

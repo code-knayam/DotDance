@@ -1,0 +1,61 @@
+@if(qrCode()) {
+<div class="qr-details" [attr.data-id]="qrCode()!.id">
+  <div class="header">
+    <h1>{{ qrCode()!.name }}</h1>
+    <div class="actions">
+      <button mat-flat-button color="primary" (click)="deleteQR()">
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
+    </div>
+  </div>
+
+  <div class="content">
+    <mat-card class="qr-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>QR Code</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="qr-preview">
+          <qrcode [qrdata]="qrCode()!.slugUrl!" [width]="256" [errorCorrectionLevel]="'M'"
+            [colorDark]="qrCode()!.foregroundColor" [colorLight]="qrCode()!.backgroundColor"
+            [imageSrc]="qrCode()!.logoUrl" />
+        </div>
+        {{qrCode()!.slugUrl}}
+        <button type="button" mat-raised-button color="warn" (click)="downloadQR()">
+          Download QR Code
+        </button>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="qr-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>QR Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="edit-form">
+          <mat-form-field>
+            <mat-label>Destination URL</mat-label>
+            <input matInput formControlName="newDestinationUrl" required />
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!editForm.valid">
+            Update URL
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="analytics-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Scan Analytics</mat-card-title>
+      </mat-card-header>
+      <mat-card-content> </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+}
+
+@if(loading()) {
+<div class="loading-spinner">
+  <mat-spinner></mat-spinner>
+</div>
+}

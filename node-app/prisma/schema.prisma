@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String    @id @default(uuid())
+  firebaseUid String    @unique
+  email       String
+  name        String?
+  createdAt   DateTime  @default(now())
+  qrcodes     QRCode[]
+}
+
+model QRCode {
+  id              String               @id @default(uuid())
+  slug            String               @unique
+  name            String?
+  destinationUrl  String
+  backgroundColor String               @default("#FFFFFF")
+  foregroundColor String               @default("#000000")
+  logoUrl         String?
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  userId          String
+  user            User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  redirects       QRRedirectHistory[]
+  scanLogs        QRScanLog[]
+}
+
+model QRRedirectHistory {
+  id          String   @id @default(uuid())
+  qrId        String
+  qr          QRCode   @relation(fields: [qrId], references: [id], onDelete: Cascade)
+  previousUrl String
+  newUrl      String
+  changedAt   DateTime @default(now())
+}
+
+model QRScanLog {
+  id         String   @id @default(uuid())
+  qrId       String
+  qr         QRCode   @relation(fields: [qrId], references: [id], onDelete: Cascade)
+  scannedAt  DateTime @default(now())
+  ipAddress  String?
+  country    String?
+  deviceInfo String?
+}
+  

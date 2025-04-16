@@ -1,0 +1,57 @@
+<div class="qr-create">
+  <h1>Create QR Code</h1>
+  <div class="content">
+    <div class="form-section">
+      <div class="section-header">
+        <h2>QR Code Details</h2>
+        <p>Fill in the details below to create your custom QR code.</p>
+      </div>
+      <form [formGroup]="qrForm" (ngSubmit)="onSubmit()" class="form">
+        <mat-form-field appearance="outline">
+          <mat-label>QR Code Name</mat-label>
+          <input matInput formControlName="name" required placeholder="e.g. Company Website">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Destination URL</mat-label>
+          <input matInput formControlName="url" required placeholder="e.g. https://example.com">
+        </mat-form-field>
+
+        <div class="color-fields">
+          <mat-form-field appearance="outline" class="color-field">
+            <mat-label>Background Color</mat-label>
+            <input matInput formControlName="backgroundColor" type="color">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="color-field">
+            <mat-label>Foreground Color</mat-label>
+            <input matInput formControlName="foregroundColor" type="color">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Logo URL (optional)</mat-label>
+          <input matInput formControlName="logoUrl" placeholder="e.g. https://example.com/logo.png">
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!qrForm.valid">Generate</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="preview-section">
+      <div class="section-header">
+        <h2>Preview QR</h2>
+      </div>
+      <mat-card class="preview-card">
+        <div class="qr-preview">
+          <qrcode [qrdata]="window.location.origin" [width]="256" [errorCorrectionLevel]="'M'"
+            [colorDark]="qrForm.get('foregroundColor')?.value || '#000000'"
+            [colorLight]="qrForm.get('backgroundColor')?.value || '#ffffff'"
+            [imageSrc]="qrForm.get('logoUrl')?.value" />
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

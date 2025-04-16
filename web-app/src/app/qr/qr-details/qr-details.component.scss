@@ -1,0 +1,36 @@
+.qr-details {
+  // padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.qr-card {
+  height: fit-content;
+}
+
+.qr-preview {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+mat-icon {
+  margin-right: 8px;
+}
