@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
-  redirectUrl: 'http://localhost:8080',
+  apiUrl: 'https://dotdance-production.up.railway.app',
+  redirectUrl: 'https://dotdance-afb45-f9544.web.app',
 };

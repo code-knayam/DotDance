@@ -20,7 +20,7 @@
         }
 
         try {
-          const res = await fetch(`http://localhost:3000/api/public/scan/${slugId}`);
+          const res = await fetch(`https://dotdance-production.up.railway.app/api/public/scan/${slugId}`);
           if (!res.ok) throw new Error("Invalid response");
 
           const data = await res.json();

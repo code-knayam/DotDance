@@ -21,8 +21,8 @@
             [colorDark]="qrCode()!.foregroundColor" [colorLight]="qrCode()!.backgroundColor"
             [imageSrc]="qrCode()!.logoUrl" />
         </div>
-        {{qrCode()!.slugUrl}}
-        <button type="button" mat-raised-button color="warn" (click)="downloadQR()">
+        <!-- {{qrCode()!.slugUrl}} -->
+        <button type="button" mat-flat-button color="primary" (click)="downloadQR()">
           Download QR Code
         </button>
       </mat-card-content>
@@ -37,19 +37,19 @@
             <mat-label>Destination URL</mat-label>
             <input matInput formControlName="newDestinationUrl" required />
           </mat-form-field>
-          <button mat-raised-button color="primary" type="submit" [disabled]="!editForm.valid">
+          <button mat-flat-button color="primary" type="submit" [disabled]="!editForm.valid">
             Update URL
           </button>
         </form>
       </mat-card-content>
     </mat-card>
 
-    <mat-card class="analytics-card" appearance="outlined">
+    <!-- <mat-card class="analytics-card" appearance="outlined">
       <mat-card-header>
         <mat-card-title>Scan Analytics</mat-card-title>
       </mat-card-header>
       <mat-card-content> </mat-card-content>
-    </mat-card>
+    </mat-card> -->
   </div>
 </div>
 }

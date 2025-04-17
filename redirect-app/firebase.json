@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "dotdance-afb45-f9544",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/redirect",
+        "destination": "/redirect.html"
+      }
+    ]
+  }
+}

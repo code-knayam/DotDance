@@ -148,7 +148,7 @@ export class QrDetailsComponent implements OnInit {
       const imgData = canvas.toDataURL('image/png');
       const a = document.createElement('a');
       a.href = imgData;
-      a.download = `${this.qrCode.name}.png`;
+      a.download = `${this.qrCode()!.name} QR.png`;
       a.click();
     } else {
       console.error('QR code canvas not found');
