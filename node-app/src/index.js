@@ -1,9 +1,9 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const compression = require('compression');
-const morgan = require('morgan');
+const corsMiddleware = require('./middleware/cors');
+const securityMiddleware = require('./middleware/security');
+const performanceMiddleware = require('./middleware/performance');
+const errorHandler = require('./middleware/errorHandler');
 const qrCodesRouter = require('./routes/qrCodes');
 const authRouter = require('./routes/auth');
 const publicRouter = require('./routes/public');
@@ -13,13 +13,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Security middleware
-app.use(helmet());
-app.use(cors());
-
-// Performance middleware
-app.use(compression());
-app.use(morgan('combined'));
+// Apply middleware
+app.use(securityMiddleware);
+app.use(corsMiddleware);
+app.use(performanceMiddleware);
 
 // Body parsing middleware
 app.use(express.json());
@@ -42,12 +39,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/qr-codes', qrCodesRouter);
 
 // Error handling middleware
-app.use((err, req, res, next) => {
-  logger.error('Unhandled error:', err);
-  res.status(500).json({
-    error: NODE_ENV === 'production' ? 'Internal server error' : err.message,
-  });
-});
+app.use(errorHandler(NODE_ENV));
 
 // Start server
 app.listen(PORT, () => {
