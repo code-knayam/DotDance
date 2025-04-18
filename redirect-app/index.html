@@ -9,6 +9,32 @@
 
   <body>
     <p>Redirecting...</p>
+    <script>
+      (async () => {
+        const params = new URLSearchParams(window.location.search);
+        const slugId = params.get('slugId');
+
+        if (!slugId) {
+          document.body.innerHTML = "<h2>Invalid or missing slug.</h2>";
+          return;
+        }
+
+        try {
+          const res = await fetch(`https://dotdance-production.up.railway.app/api/public/scan/${slugId}`);
+          if (!res.ok) throw new Error("Invalid response");
+
+          const data = await res.json();
+          if (data?.url) {
+            window.location.href = data.url;
+          } else {
+            document.body.innerHTML = "<h2>Redirection URL not found.</h2>";
+          }
+        } catch (error) {
+          console.error(error);
+          document.body.innerHTML = "<h2>Error during redirection.</h2>";
+        }
+      })();
+    </script>
   </body>
 
 </html>
