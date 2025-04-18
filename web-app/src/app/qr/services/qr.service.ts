@@ -9,7 +9,7 @@ import { environment as env } from '../../../environment/environment';
 })
 export class QRService {
   private apiUrl = `${env.apiUrl}/api/qr-codes`;
-  private redirectUrl = `${env.redirectUrl}/redirect?slugId=`;
+  private redirectUrl = `${env.redirectUrl}?slugId=`;
 
   constructor(private http: HttpClient) {}
 
